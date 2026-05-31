@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top Clean - клининг в Новосибирске</title>
+  <meta name="description" content="Лендинг-концепт для Top Clean: уборка производственных помещений, жилой и коммерческой недвижимости в Новосибирске.">
+  <style>
+    :root {
+      --ink: #122124;
+      --muted: #607074;
+      --green: #14855f;
+      --green-dark: #0c5e45;
+      --blue: #1497d4;
+      --sky: #e8f6fb;
+      --mint: #ebf8f2;
+      --line: #dce8e5;
+      --paper: #ffffff;
+      --soft: #f5f8f7;
+      --shadow: 0 18px 44px rgba(18, 33, 36, 0.13);
+      --radius: 8px;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-size: 16px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      min-width: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(220, 232, 229, 0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 172px;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: -2px;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .navlinks a:hover {
+      color: var(--green-dark);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .phone {
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: var(--green-dark);
+      box-shadow: 0 12px 26px rgba(20, 133, 95, 0.22);
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--green-dark);
+      border-color: rgba(12, 94, 69, 0.25);
+      box-shadow: none;
+    }
+
+    .btn.secondary:hover {
+      background: var(--mint);
+    }
+
+    .hero {
+      min-height: min(760px, 86svh);
+      position: relative;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(90deg, rgba(247, 252, 250, 0.98) 0%, rgba(247, 252, 250, 0.86) 34%, rgba(247, 252, 250, 0.3) 58%, rgba(247, 252, 250, 0.05) 100%),
+        url("assets/top-clean-hero.jpg") right center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .hero-content {
+      width: min(660px, 100%);
+      padding: 72px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.94;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .hero-copy {
+      max-width: 580px;
+      margin-bottom: 28px;
+      font-size: clamp(18px, 2.4vw, 24px);
+      line-height: 1.35;
+      color: #304347;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: min(610px, 100%);
+    }
+
+    .fact {
+      padding: 14px;
+      border: 1px solid rgba(20, 133, 95, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 22px;
+      line-height: 1.05;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section.soft {
+      background: var(--soft);
+    }
+
+    .section-title {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(260px, 0.5fr);
+      align-items: end;
+      gap: 36px;
+      margin-bottom: 34px;
+    }
+
+    .section-title > * {
+      min-width: 0;
+    }
+
+    .section-title h2 {
+      margin-bottom: 0;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-title p {
+      margin-bottom: 4px;
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .service-card,
+    .step,
+    .package,
+    .form-card,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 1px 0 rgba(18, 33, 36, 0.03);
+      min-width: 0;
+    }
+
+    .service-card {
+      min-height: 218px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border: 1px solid rgba(20, 151, 212, 0.22);
+      border-radius: 8px;
+      background: var(--sky);
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .service-card h3,
+    .step h3,
+    .package h3,
+    .form-card h2,
+    .contact-panel h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .service-card p,
+    .step p,
+    .package p,
+    .contact-panel p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: steps;
+    }
+
+    .step {
+      padding: 24px;
+      min-height: 210px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step::before {
+      counter-increment: steps;
+      content: "0" counter(steps);
+      display: block;
+      margin-bottom: 42px;
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.48fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .package {
+      min-height: 308px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      cursor: pointer;
+      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .package:hover,
+    .package.active {
+      transform: translateY(-2px);
+      border-color: rgba(20, 133, 95, 0.55);
+      box-shadow: var(--shadow);
+    }
+
+    .package .price {
+      margin-top: auto;
+      color: var(--green-dark);
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .package ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #35494d;
+      font-size: 15px;
+    }
+
+    .package li {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .package li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      margin-top: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .form-card {
+      position: sticky;
+      top: 96px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .lead-form label {
+      display: grid;
+      gap: 6px;
+      color: #405256;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .lead-form textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .lead-form input:focus,
+    .lead-form select:focus,
+    .lead-form textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(20, 151, 212, 0.13);
+    }
+
+    .form-note {
+      min-height: 40px;
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .proof {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .quote {
+      padding: 34px;
+      border-left: 4px solid var(--blue);
+      background: var(--paper);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .quote p {
+      margin-bottom: 12px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .quote span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .proof-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .proof-item {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green-dark);
+      font-size: 18px;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contacts {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(320px, 0.55fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      padding: 34px;
+    }
+
+    .contact-lines {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0 28px;
+    }
+
+    .contact-line {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-line span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .contact-line strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 18px;
+    }
+
+    .map-card {
+      min-height: 430px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(232, 246, 251, 0.95), rgba(235, 248, 242, 0.95)),
+        repeating-linear-gradient(0deg, transparent 0 30px, rgba(18, 33, 36, 0.055) 30px 31px),
+        repeating-linear-gradient(90deg, transparent 0 38px, rgba(18, 33, 36, 0.05) 38px 39px);
+      border: 1px solid var(--line);
+    }
+
+    .map-road {
+      position: absolute;
+      height: 86px;
+      width: 130%;
+      left: -18%;
+      top: 48%;
+      transform: rotate(-17deg);
+      background: rgba(20, 151, 212, 0.18);
+      border-top: 1px solid rgba(20, 151, 212, 0.28);
+      border-bottom: 1px solid rgba(20, 151, 212, 0.28);
+    }
+
+    .map-road.two {
+      top: 28%;
+      transform: rotate(26deg);
+      background: rgba(20, 133, 95, 0.16);
+    }
+
+    .pin {
+      position: absolute;
+      left: 52%;
+      top: 44%;
+      transform: translate(-50%, -50%);
+      width: 84px;
+      height: 84px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20, 133, 95, 0.22);
+    }
+
+    .pin img {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+    }
+
+    .map-label {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 18px;
+      border: 1px solid rgba(220, 232, 229, 0.95);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 16px 34px rgba(18, 33, 36, 0.12);
+    }
+
+    .map-label strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green-dark);
+    }
+
+    .map-label span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .nav-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .hero {
+        min-height: 78svh;
+        background:
+          linear-gradient(90deg, rgba(247, 252, 250, 0.97) 0%, rgba(247, 252, 250, 0.84) 56%, rgba(247, 252, 250, 0.34) 100%),
+          url("assets/top-clean-hero.jpg") 64% center / cover no-repeat;
+      }
+
+      .section-title,
+      .split,
+      .proof,
+      .contacts {
+        grid-template-columns: 1fr;
+      }
+
+      .services,
+      .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .packages {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: calc(100vw - 28px);
+        max-width: calc(100vw - 28px);
+      }
+
+      .topbar {
+        position: relative;
+      }
+
+      .nav,
+      .services,
+      .process,
+      .proof-list {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-facts {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .fact {
+        padding: 10px;
+      }
+
+      .fact strong {
+        font-size: 20px;
+      }
+
+      .fact span {
+        font-size: 11px;
+      }
+
+      .nav {
+        display: grid;
+        gap: 14px;
+      }
+
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
+      .phone {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: auto;
+        align-items: start;
+        background:
+          linear-gradient(180deg, rgba(247, 252, 250, 0.96) 0%, rgba(247, 252, 250, 0.88) 52%, rgba(247, 252, 250, 0.42) 100%),
+          url("assets/top-clean-hero.jpg") 70% center / cover no-repeat;
+      }
+
+      .hero-content {
+        padding: 46px 0 58px;
+        width: min(100%, 340px);
+      }
+
+      h1 {
+        font-size: clamp(46px, 16vw, 64px);
+      }
+
+      .hero-copy {
+        font-size: 18px;
+        max-width: 100%;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section-title {
+        gap: 18px;
+      }
+
+      .service-card,
+      .step,
+      .package,
+      .form-card,
+      .contact-panel,
+      .quote {
+        padding: 22px;
+      }
+
+      .map-card {
+        min-height: 340px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Top Clean">
+        <img src="assets/top-clean-logo.png" alt="">
+        <span>Top Clean<small>клининг в Новосибирске</small></span>
+      </a>
+
+      <nav class="navlinks" aria-label="Основная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#process">Процесс</a>
+        <a href="#packages">Пакеты</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="phone" href="tel:+79139122202">+7 913 912-22-02</a>
+        <a class="btn secondary" href="#request">Заявка</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Top Clean">
+      <div class="shell">
+        <div class="hero-content">
+          <div class="eyebrow">Клининговая компания</div>
+          <h1>Top Clean</h1>
+          <p class="hero-copy">Уборка производственных помещений, жилой и коммерческой недвижимости в Новосибирске.</p>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+79139122202">Позвонить</a>
+            <a class="btn secondary" href="#request">Рассчитать уборку</a>
+          </div>
+          <div class="quick-facts" aria-label="Ключевые факты">
+            <div class="fact">
+              <strong>4.0</strong>
+              <span>оценка в 2ГИС</span>
+            </div>
+            <div class="fact">
+              <strong>4</strong>
+              <span>филиала организации</span>
+            </div>
+            <div class="fact">
+              <strong>24/7</strong>
+              <span>заявки на расчет</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Клининг под формат объекта</h2>
+          <p>Главная страница сразу разделяет аудиторию: офисы, производство, жилье и разовые генеральные уборки.</p>
+        </div>
+
+        <div class="services">
+          <article class="service-card">
+            <div>
+              <div class="service-mark">01</div>
+              <h3>Коммерческие помещения</h3>
+              <p>Офисы, шоурумы, ресепшены, переговорные, санузлы и зоны ожидания.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div>
+              <div class="service-mark">02</div>
+              <h3>Производственные зоны</h3>
+              <p>Плановая уборка цехов, складов, подсобных помещений и входных групп.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div>
+              <div class="service-mark">03</div>
+              <h3>Квартиры и дома</h3>
+              <p>Поддерживающая и генеральная уборка, подготовка к переезду или после ремонта.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div>
+              <div class="service-mark">04</div>
+              <h3>Стекла и сложные зоны</h3>
+              <p>Витражи, зеркала, стеклянные перегородки, труднодоступные поверхности.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="process">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Понятный порядок работ</h2>
+          <p>Для клининга важно снять тревогу: кто приедет, что сделает команда и как принять результат.</p>
+        </div>
+
+        <div class="process">
+          <article class="step">
+            <h3>Быстрый бриф</h3>
+            <p>Уточняем площадь, тип помещения, загрязнения, сроки и желаемый график.</p>
+          </article>
+          <article class="step">
+            <h3>Расчет состава</h3>
+            <p>Подбираем команду, инвентарь, химию и объем работ под конкретный объект.</p>
+          </article>
+          <article class="step">
+            <h3>Уборка на объекте</h3>
+            <p>Работаем по зонам: полы, стекла, поверхности, санузлы, входные группы.</p>
+          </article>
+          <article class="step">
+            <h3>Финальная приемка</h3>
+            <p>Проверяем детали вместе с клиентом и фиксируем регулярный график при необходимости.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="shell split">
+        <div>
+          <div class="section-title" style="grid-template-columns: 1fr; margin-bottom: 26px;">
+            <h2>Пакеты для первого экрана продаж</h2>
+            <p>Цены можно заменить на реальные после расчета. Сейчас это демонстрация структуры коммерческого лендинга.</p>
+          </div>
+
+          <div class="packages" aria-label="Пакеты уборки">
+            <article class="package active" data-package="Поддерживающая уборка">
+              <h3>Поддерживающая</h3>
+              <p>Для офисов и жилых помещений, где важна регулярная чистота без остановки процессов.</p>
+              <ul>
+                <li>полы и открытые поверхности</li>
+                <li>санузлы и кухня</li>
+                <li>вынос мусора</li>
+              </ul>
+              <div class="price">от 2 900 ₽</div>
+            </article>
+
+            <article class="package" data-package="Генеральная уборка">
+              <h3>Генеральная</h3>
+              <p>Для объектов после активного использования, сезонной уборки или подготовки к событию.</p>
+              <ul>
+                <li>сложные загрязнения</li>
+                <li>стекла, зеркала, перегородки</li>
+                <li>детальная приемка</li>
+              </ul>
+              <div class="price">от 6 900 ₽</div>
+            </article>
+
+            <article class="package" data-package="Коммерческий объект">
+              <h3>Для бизнеса</h3>
+              <p>Регулярное обслуживание офисов, производственных и складских помещений.</p>
+              <ul>
+                <li>график под смены</li>
+                <li>расходники и инвентарь</li>
+                <li>ответственный менеджер</li>
+              </ul>
+              <div class="price">расчет</div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="form-card" id="request">
+          <h2>Рассчитать уборку</h2>
+          <p>Оставьте параметры объекта - менеджер подготовит ориентир по составу работ.</p>
+          <form class="lead-form">
+            <label>
+              Имя
+              <input name="name" type="text" placeholder="Как к вам обращаться">
+            </label>
+            <label>
+              Телефон
+              <input name="phone" type="tel" placeholder="+7 ___ ___-__-__">
+            </label>
+            <label>
+              Тип уборки
+              <select name="type" id="cleanType">
+                <option>Поддерживающая уборка</option>
+                <option>Генеральная уборка</option>
+                <option>Коммерческий объект</option>
+                <option>После ремонта</option>
+              </select>
+            </label>
+            <label>
+              Комментарий
+              <textarea name="comment" placeholder="Площадь, адрес, удобное время"></textarea>
+            </label>
+            <button class="btn" type="submit">Подготовить заявку</button>
+            <div class="form-note" role="status" aria-live="polite"></div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section soft" aria-label="Доверие">
+      <div class="shell proof">
+        <div class="quote">
+          <p>Акцент лендинга - на чистом результате, быстрой связи и понятной приемке работ.</p>
+          <span>Позиционирование для Top Clean</span>
+        </div>
+        <div class="proof-list">
+          <div class="proof-item">
+            <strong>Рейтинг в 2ГИС</strong>
+            <span>Карточка компании показывает оценку 4.0 и отзывы клиентов.</span>
+          </div>
+          <div class="proof-item">
+            <strong>Локальная привязка</strong>
+            <span>Адрес в Новосибирске помогает сразу строить доверие и маршрут.</span>
+          </div>
+          <div class="proof-item">
+            <strong>Услуги для бизнеса</strong>
+            <span>Производственные и коммерческие помещения вынесены в отдельные сценарии.</span>
+          </div>
+          <div class="proof-item">
+            <strong>Быстрое действие</strong>
+            <span>Телефон и заявка доступны в первом экране и в контактном блоке.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="shell contacts">
+        <div class="contact-panel">
+          <h2>Контакты Top Clean</h2>
+          <p>Контактный блок завершает страницу без лишнего шума: телефон, адрес и быстрый переход в карточку 2ГИС.</p>
+
+          <div class="contact-lines">
+            <div class="contact-line">
+              <span>Телефон</span>
+              <strong><a href="tel:+79139122202">+7 913 912-22-02</a></strong>
+            </div>
+            <div class="contact-line">
+              <span>Адрес</span>
+              <strong>Новосибирск, Станционная улица, 30а к17</strong>
+            </div>
+            <div class="contact-line">
+              <span>Направление</span>
+              <strong>Клининговая компания</strong>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-bottom: 0;">
+            <a class="btn" href="tel:+79139122202">Позвонить</a>
+            <a class="btn secondary" href="https://go.2gis.com/sqVpP" target="_blank" rel="noreferrer">Открыть в 2ГИС</a>
+          </div>
+        </div>
+
+        <div class="map-card" aria-label="Схема расположения">
+          <div class="map-road"></div>
+          <div class="map-road two"></div>
+          <div class="pin">
+            <img src="assets/top-clean-logo.png" alt="">
+          </div>
+          <div class="map-label">
+            <strong>Top Clean</strong>
+            <span>Станционная улица, 30а к17, Новосибирск</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>Концепт лендинга для Top Clean</span>
+      <span>Данные компании взяты из открытой карточки 2ГИС</span>
+    </div>
+  </footer>
+
+  <script>
+    const packages = document.querySelectorAll(".package");
+    const typeSelect = document.querySelector("#cleanType");
+    const form = document.querySelector(".lead-form");
+    const note = document.querySelector(".form-note");
+
+    packages.forEach((item) => {
+      item.addEventListener("click", () => {
+        packages.forEach((card) => card.classList.remove("active"));
+        item.classList.add("active");
+        typeSelect.value = item.dataset.package;
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const name = data.get("name") || "Заявка";
+      note.textContent = `${name}: заявка подготовлена. Для живого сайта тут подключается CRM или мессенджер.`;
+    });
+  </script>
+</body>
+</html>
